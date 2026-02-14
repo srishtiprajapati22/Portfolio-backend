@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Futuristic AI Palette */
+  --background: 222 47% 11%;     /* #0F172A */
+  --foreground: 210 40% 98%;     /* #F8FAFC */
+  
+  --primary: 186 100% 50%;       /* #00F5FF - Electric Cyan */
+  --primary-foreground: 222 47% 11%;
+  
+  --secondary: 217 91% 60%;      /* #3B82F6 - Tech Blue */
+  --secondary-foreground: 210 40% 98%;
+  
+  --muted: 217 33% 17%;          /* Darker slate */
+  --muted-foreground: 215 20% 65%;
+  
+  --accent: 262 83% 58%;         /* Purple accent for depth */
+  --accent-foreground: 210 40% 98%;
+  
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 210 40% 98%;
+
+  --border: 217 33% 20%;
+  --input: 217 33% 20%;
+  --ring: 186 100% 50%;
+
+  --radius: 0.75rem;
+  
+  /* Fonts */
+  --font-sans: 'Inter', sans-serif;
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+@layer base {
+  body {
+    @apply bg-[#0A0F1C] text-foreground font-sans antialiased selection:bg-primary/30 selection:text-primary-foreground;
+    background-image: 
+      radial-gradient(circle at 15% 50%, rgba(59, 130, 246, 0.08), transparent 25%),
+      radial-gradient(circle at 85% 30%, rgba(0, 245, 255, 0.08), transparent 25%);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    @apply tracking-tight;
+  }
+}
+
+@layer utilities {
+  .text-glow {
+    text-shadow: 0 0 20px rgba(0, 245, 255, 0.5);
+  }
+  
+  .glass-card {
+    @apply bg-slate-900/60 backdrop-blur-md border border-slate-800/50 shadow-xl;
+  }
+
+  .glass-nav {
+    @apply bg-[#0A0F1C]/80 backdrop-blur-lg border-b border-white/5;
+  }
+  
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-[#0A0F1C];
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-700 rounded-full hover:bg-primary/50 transition-colors;
+}
